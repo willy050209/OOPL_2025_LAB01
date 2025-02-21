@@ -48,13 +48,12 @@ void App::Update() {
         break;
     case App::Phase::OPEN_THE_DOORS:
         CharacterMove(m_Giraffe, 5.0f);
-        for (auto& it : m_Doors) {
+        for (const auto& it : m_Doors) {
             if (m_Giraffe->IfCollides(it) && it->GetImagePath() == GA_RESOURCE_DIR"/Image/Character/door_close.png")
                 it->SetImage(GA_RESOURCE_DIR"/Image/Character/door_open.png");
         }
         break;
     case App::Phase::COUNTDOWN:
-        m_Ball->SetLooping(false);
         ((Util::Animation*)m_Ball->getDrawable())->Play();
         if (((Util::Animation*)m_Ball->getDrawable())->GetCurrentFrameIndex() == 3)
             ((Util::Animation*)m_Ball->getDrawable())->Pause();
