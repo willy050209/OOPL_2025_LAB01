@@ -76,6 +76,7 @@ void App::ValidTask() {
                 m_Phase = Phase::COUNTDOWN;
                 std::for_each(m_Doors.begin(), m_Doors.end(), [](const auto& door) { door->SetVisible(false); });
                 m_Giraffe->SetVisible(false);
+                m_Ball->SetVisible(true);//
 
                 m_PRM->NextPhase();
             } else {

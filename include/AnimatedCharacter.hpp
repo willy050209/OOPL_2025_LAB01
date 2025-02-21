@@ -26,6 +26,10 @@ public:
         temp->SetLooping(looping);
     }
 
+    inline Core::Drawable* getDrawable()const noexcept {
+        return m_Drawable.get();
+    }
+
     [[nodiscard]] bool IfAnimationEnds() const;
 
 };
