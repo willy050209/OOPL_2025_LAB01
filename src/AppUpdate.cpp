@@ -44,7 +44,7 @@ void App::Update() {
         break;
     case App::Phase::BEE_ANIMATION:
         m_Bee->SetLooping(true);
-        ((Util::Animation*)m_Bee->getDrawable())->Play();
+        std::dynamic_pointer_cast<Util::Animation>(m_Bee->getDrawable())->Play();
         break;
     case App::Phase::OPEN_THE_DOORS:
         CharacterMove(m_Giraffe, 5.0f);
@@ -53,10 +53,11 @@ void App::Update() {
                 it->SetImage(GA_RESOURCE_DIR"/Image/Character/door_open.png");
         }
         break;
+        //std::pointer_ca
     case App::Phase::COUNTDOWN:
-        ((Util::Animation*)m_Ball->getDrawable())->Play();
-        if (((Util::Animation*)m_Ball->getDrawable())->GetCurrentFrameIndex() == 3)
-            ((Util::Animation*)m_Ball->getDrawable())->Pause();
+        std::dynamic_pointer_cast<Util::Animation>(m_Ball->getDrawable())->Play();
+        if (std::dynamic_pointer_cast<Util::Animation>(m_Ball->getDrawable())->GetCurrentFrameIndex() == 3)
+            std::dynamic_pointer_cast<Util::Animation>(m_Ball->getDrawable())->Pause();
         break;
     default:
         break;

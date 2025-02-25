@@ -26,8 +26,8 @@ public:
         temp->SetLooping(looping);
     }
 
-    inline Core::Drawable* getDrawable()const noexcept {
-        return m_Drawable.get();
+    inline std::shared_ptr<Core::Drawable> getDrawable()const noexcept {
+        return m_Drawable;
     }
 
     [[nodiscard]] bool IfAnimationEnds() const;
